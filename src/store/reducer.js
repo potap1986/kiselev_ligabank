@@ -3,7 +3,13 @@ import dateFormat from 'dateformat';
 
 const initialState = {
     history: [],
-		rates: {},
+		rates: {
+			RUB: 0,
+			USD: 0,
+			EUR: 0,
+			GBP: 0,
+			CNY: 0,
+		},
 		date: dateFormat(new Date(), "yyyy-mm-dd"),
 }
 

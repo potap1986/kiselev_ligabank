@@ -8,7 +8,7 @@ const Intro = () => {
         <div className="intro__content">
           <h1 className="intro__title">Лига Банк</h1>
           <p className="intro__text">Кредиты на любой случай</p>
-          <a href="mail.ru" className="intro__link">Расчитать кредит</a>
+          <a href="ligabank.com" className="intro__link">Расcчитать кредит</a>
         </div>
         <div className="intro__picture">
           <img src="img/cards.png" width="398" height="240" alt="Карта банка" />

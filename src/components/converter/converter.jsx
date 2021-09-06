@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import PropTypes from "prop-types";
 import './converter.scss';
 import {Currency} from '../../const';
 import dateFormat from 'dateformat';
@@ -71,13 +72,15 @@ const Converter = (props) => {
   const handleHistoryAddButtonClick = (evt) => {
     evt.preventDefault();
 
-    const operation = {
-      date: dateFormat(new Date(data.date), "dd.mm.yyyy"),
-      start: `${data.startValue} ${data.startCurrency}`,
-      end: `${data.endValue} ${data.endCurrency}`,
-    };
-
-    props.onHistoryAddButtonClick(operation);
+    if (data.startValue > 0 && data.endValue > 0) {
+      const operation = {
+        date: dateFormat(new Date(data.date), "dd.mm.yyyy"),
+        start: `${data.startValue} ${data.startCurrency}`,
+        end: `${data.endValue} ${data.endCurrency}`,
+      };
+  
+      props.onHistoryAddButtonClick(operation);
+    }
   }
 
   return (
@@ -118,22 +121,38 @@ const Converter = (props) => {
             <option value={Currency.CNY}>{Currency.CNY}</option>
           </select>
         </div>
-        <input 
-          onChange={handleDateChange}
-          className="converter__calendar"
-          type="date"
-          name="calendar"
-          min={dateFrom}
-          max={dateTo}
-          value={data.date} 
-        />
+				<div className="converter__calendar">
+					<input 
+						onChange={handleDateChange}
+						type="date"
+						name="calendar"
+						min={dateFrom}
+						max={dateTo}
+						value={data.date} 
+            required
+					/>
+
+				</div>
         <button type="submit" className="converter__submit"
           onClick={handleHistoryAddButtonClick}
-        >Сохранить</button>          
+        >Сохранить результат</button>          
       </form>
     </section>
   );
 };
+
+Converter.propTypes = {
+	date: PropTypes.string.isRequired,
+	rates: PropTypes.shape({
+		RUB: PropTypes.number.isRequired,
+		USD: PropTypes.number.isRequired,
+		EUR: PropTypes.number.isRequired,
+		GBP: PropTypes.number.isRequired,
+		CNY: PropTypes.number.isRequired,
+	}).isRequired,
+	onDateChange: PropTypes.func.isRequired,
+	onHistoryAddButtonClick: PropTypes.func.isRequired
+}
 
 const mapStateToProps = (state) => {
 	return {

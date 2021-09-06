@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import './history.scss';
 import { connect } from 'react-redux';
 import ActionCreator from '../../store/actions';
@@ -26,6 +27,15 @@ const History = (props) => {
 		</section>
 	);
 };
+
+History.propTypes = {
+	history: PropTypes.arrayOf(PropTypes.shape({
+		date: PropTypes.string.isRequired,
+		start: PropTypes.string.isRequired,
+		end: PropTypes.string.isRequired,
+	})).isRequired,
+	onHistoryResetButtonClick: PropTypes.func.isRequired
+}
 
 const mapStateToProps = (state) => {
 	return {

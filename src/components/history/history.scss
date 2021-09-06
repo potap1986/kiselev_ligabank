@@ -1,8 +1,9 @@
 .history__wrapper {
 	background-color: #F6F7FF;
 	border-radius: 4px;
-	padding: 40px 70px;
-	margin-bottom: 100px;
+	padding: 45px 70px;
+	padding-bottom: 39px;
+	margin-bottom: 109px;
 }
 
 .history__title {
@@ -15,7 +16,7 @@
 }
 
 .history__list {
-	min-height: 280px;
+	min-height: 230px;
 	position: relative;
 	margin: 0;
 	padding: 0;
@@ -25,13 +26,13 @@
 	font-size: 18px;
 	line-height: 23px;
 	color: #1F1E25;
-	margin-bottom: 20px;
+	margin-bottom: 23px;
 
 	&::after {
 		position: absolute;
 		content: "";
 		top: -33px;
-		bottom: 0;
+		bottom: -27px;
 		width: 1px;
 		left: 50%;
 		background-color: #C1C2CA;
@@ -40,7 +41,7 @@
 }
 
 .history__item {
-	margin-bottom: 33px;
+	margin-bottom: 23px;
 }
 
 .history__date {
@@ -57,8 +58,8 @@
 		position: absolute;
 		width: 40px;
 		height: 16px;
-		top: 0;
-		right: 0;
+		top: 3px;
+		right: -3px;
 		background-image: url('../../img/arrow.svg');
 		background-size: 100%;
 		background-repeat: no-repeat;
@@ -74,7 +75,15 @@
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 19px;
-	padding: 18px 28px;
+	padding: 16px 30px;
 	border-radius: 4px;
 	border: none;
+	cursor: pointer;
+
+	transition: opacity 0.3s ease;
+
+	&:hover,
+	&:focus {
+		opacity: 0.7;
+	}
 }

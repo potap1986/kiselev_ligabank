@@ -1,7 +1,7 @@
 .header {
 	background-color: #F6F7FF;
 	padding-top: 27px;
-	padding-bottom: 34px;
+	padding-bottom: 29px;
 }
 
 .header__container {
@@ -11,12 +11,19 @@
 
 .header__logo {
 	text-decoration: none;
-	margin-right: 58px;
+	margin-right: 63px;
 	margin-bottom: 5px;
 
 	svg {
-		margin-right: 9px;
+		margin-right: 5px;
 		fill: #2C36F2;
+	}
+
+	transition: opacity 0.3s ease;
+
+	&:hover,
+	&:focus {
+		opacity: 0.7;
 	}
 }
 
@@ -48,6 +55,16 @@
 	font-size: 16px;
 	line-height: 19px;
 	color: #1F1E25;
+	transition: opacity 0.3s ease;
+
+	&--active {
+		color: #2C36F2;
+	}
+
+	&:hover,
+	&:focus {
+		opacity: 0.7;
+	}
 }
 
 .header__enter {
@@ -64,4 +81,10 @@
 		fill: #1F1E25;
 	}
 
+	transition: opacity 0.3s ease;
+
+	&:hover,
+	&:focus {
+		opacity: 0.7;
+	}
 }
